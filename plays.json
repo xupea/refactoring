@@ -1,14 +1,14 @@
 {
-  "hamlet": {
-    "name": "Hamlet",
-    "type": "tragedy"
+  "哈姆雷特": {
+    "name": "哈姆雷特",
+    "type": "悲剧"
   },
-  "as-like": {
-    "name": "As You Like It",
-    "type": "comedy"
+  "乌龙山伯爵": {
+    "name": "乌龙山伯爵",
+    "type": "喜剧"
   },
-  "othello": {
-    "name": "Othello",
-    "type": "tragedy"
+  "驴得水": {
+    "name": "驴得水",
+    "type": "悲剧"
   }
 }
