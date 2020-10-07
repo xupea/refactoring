@@ -1,0 +1,19 @@
+[
+  {
+    "custom": "华夏艺术中心",
+    "performances": [
+      {
+        "playID": "哈姆雷特",
+        "audience": 55
+      },
+      {
+        "playID": "乌龙山伯爵",
+        "audience": 35
+      },
+      {
+        "playID": "驴得水",
+        "audience": 40
+      }
+    ]
+  }
+]
