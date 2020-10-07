@@ -3,10 +3,7 @@ const plays = require("./plays.json");
 
 function statement(invoice, plays) {
     let totalAmount = 0;
-    let volumnCredits = 0;
-
     let result = `Statement for ${invoice.custom}\n`;
-
     for (let perf of invoice.performances) {
         const play = playFor(perf);
 
@@ -18,6 +15,7 @@ function statement(invoice, plays) {
         totalAmount += thisAmount;
     }
 
+    let volumnCredits = 0;
     for (let perf of invoice.performances) {
         volumnCredits += volumnCreditsFor(perf);
     }
