@@ -15,16 +15,21 @@ function statement(invoice, plays) {
         totalAmount += thisAmount;
     }
 
-    let volumnCredits = 0;
-    for (let perf of invoice.performances) {
-        volumnCredits += volumnCreditsFor(perf);
-    }
+    let volumnCredits = totalVolumnCredits();
 
     result += `Amount owed is ${formatAsUSD(totalAmount / 100)}\n`;
 
     result += `You earned ${volumnCredits} creadits\n`;
 
     return result;
+
+    function totalVolumnCredits() {
+        let result = 0;
+        for (let perf of invoice.performances) {
+            result += volumnCreditsFor(perf);
+        }
+        return result;
+    }
 
     function formatAsUSD(number) {
         return new Intl.NumberFormat("en-US", {
