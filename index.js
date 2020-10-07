@@ -18,9 +18,7 @@ function statement(invoice, plays) {
 
         let thisAmount = amountFor(play, perf);
 
-        volumnCredits += Math.max(perf.audience - 30, 0);
-
-        if ("comedy" === play.type) volumnCredits += Math.floor(perf.audience / 5);
+        volumnCredits += volumnCreditsFor(perf);
 
         result += `  ${play.name}: ${format(thisAmount / 100)} ${perf.audience
             } seats \n`;
@@ -59,7 +57,17 @@ function statement(invoice, plays) {
         }
         return result;
     }
+
+    function volumnCreditsFor(perf) {
+        let result = 0;
+        const play = playFor(perf);
+        result += Math.max(perf.audience - 30, 0);
+    
+        if ("comedy" === play.type)
+            result += Math.floor(perf.audience / 5);
+        return result;
+    }
 }
 
 const stats = statement(invoices[0], plays);
-console.log(stats)
+console.log(stats);
