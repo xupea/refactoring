@@ -2,26 +2,29 @@ const invoices = require("./invoices.json");
 const plays = require("./plays.json");
 
 function statement(invoice, plays) {
-    let totalAmount = 0;
     let result = `Statement for ${invoice.custom}\n`;
     for (let perf of invoice.performances) {
         const play = playFor(perf);
-
         let thisAmount = amountFor(play, perf);
-
         result += `  ${play.name}: ${formatAsUSD(thisAmount / 100)} ${perf.audience
             } seats \n`;
-
-        totalAmount += thisAmount;
     }
 
-    let volumnCredits = totalVolumnCredits();
+    result += `Amount owed is ${formatAsUSD(totalAmount() / 100)}\n`;
 
-    result += `Amount owed is ${formatAsUSD(totalAmount / 100)}\n`;
-
-    result += `You earned ${volumnCredits} creadits\n`;
+    result += `You earned ${totalVolumnCredits()} creadits\n`;
 
     return result;
+
+    function totalAmount() {
+        let result = 0;
+        for (let perf of invoice.performances) {
+            const play = playFor(perf);
+            let thisAmount = amountFor(play, perf);
+            result += thisAmount;
+        }
+        return result;
+    }
 
     function totalVolumnCredits() {
         let result = 0;
