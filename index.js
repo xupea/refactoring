@@ -12,12 +12,14 @@ function statement(invoice, plays) {
 
         let thisAmount = amountFor(play, perf);
 
-        volumnCredits += volumnCreditsFor(perf);
-
         result += `  ${play.name}: ${formatAsUSD(thisAmount / 100)} ${perf.audience
             } seats \n`;
 
         totalAmount += thisAmount;
+    }
+
+    for (let perf of invoice.performances) {
+        volumnCredits += volumnCreditsFor(perf);
     }
 
     result += `Amount owed is ${formatAsUSD(totalAmount / 100)}\n`;
