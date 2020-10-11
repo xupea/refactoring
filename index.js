@@ -49,13 +49,13 @@ function statement(invoice, plays) {
     function amountFor(play, perf) {
         let result = 0;
         switch (play.type) {
-            case "tragedy":
+            case "悲剧":
                 result = 40000;
                 if (perf.audience > 30) {
                     result += 1000 * (perf.audience - 30);
                 }
                 break;
-            case "comedy":
+            case "喜剧":
                 result = 30000;
                 if (perf.audience > 20) {
                     result += 10000 + 500 * (perf.audience - 20);
